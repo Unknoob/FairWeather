@@ -46,11 +46,11 @@ final class WeatherInteractorTests: XCTestCase {
         let sut = WeatherInteractor(networkService: networkServiceSpy)
         sut.presenter = presenterSpy
         
-//        addTeardownBlock {
-//            XCTAssertNil(presenterSpy)
-//            XCTAssertNil(networkServiceSpy)
-//            XCTAssertNil(sut)
-//        }
+        addTeardownBlock { [weak presenterSpy, weak networkServiceSpy, weak sut] in
+            XCTAssertNil(presenterSpy)
+            XCTAssertNil(networkServiceSpy)
+            XCTAssertNil(sut)
+        }
         
         return (sut, presenterSpy, networkServiceSpy)
     }
