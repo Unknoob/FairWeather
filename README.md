@@ -18,7 +18,7 @@ I didn't want to use third party libraries because the project was very simple, 
 
 I wanted to implement better error handling, but I ran out of time for the error view. I did implement a bunch of different error types and even passed the error back to the view, so all I'm missing is proper HTTP status code parsing and an Error View.
 
-Since I used the VIPER architecture all the classes are testable, unfortunately I did not have time to implement tests in the 3 hours I was given. 
-I will implement some as example, but when examining the tests, take in consideration that I cheated by using extra time on them.
-
 Since the test was supposed to be completed fast I  didn't bother with using git correctly, this folder is a repository but there's only a couple commits and they do not represent my progress meaningfully. 
+
+Since I used the VIPER architecture all the classes are testable, unfortunately I did not have time to implement tests in the 3 hours I was given. 
+I did end up making some tests as example in a separate branch, if you want to check it switch to the `unit-tests` branch.
