@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WeatherError: Error {
+enum WeatherError: Error, Equatable {
     case httpError(error: HTTPError)
     case parsingError
     case emptyWeather

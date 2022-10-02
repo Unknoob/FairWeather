@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Weather {
+struct Weather: Equatable {
     let title: String
     let consolidatedWeatherList: [ConsolidatedWeather]
 }

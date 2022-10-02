@@ -12,9 +12,7 @@
 		004D364B28E7E20E0048F107 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D364A28E7E20E0048F107 /* WeatherViewController.swift */; };
 		004D365028E7E2110048F107 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 004D364F28E7E2110048F107 /* Assets.xcassets */; };
 		004D365328E7E2110048F107 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 004D365128E7E2110048F107 /* LaunchScreen.storyboard */; };
-		004D365E28E7E2110048F107 /* FairWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D365D28E7E2110048F107 /* FairWeatherTests.swift */; };
-		004D366828E7E2110048F107 /* FairWeatherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D366728E7E2110048F107 /* FairWeatherUITests.swift */; };
-		004D366A28E7E2110048F107 /* FairWeatherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D366928E7E2110048F107 /* FairWeatherUITestsLaunchTests.swift */; };
+		004D365E28E7E2110048F107 /* WeatherInteractorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D365D28E7E2110048F107 /* WeatherInteractorTests.swift */; };
 		004D367828E7E3680048F107 /* ViewCodeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D367728E7E3680048F107 /* ViewCodeController.swift */; };
 		004D367B28E7E6C40048F107 /* UIFont+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D367A28E7E6C40048F107 /* UIFont+Extensions.swift */; };
 		004D367D28E7E84E0048F107 /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D367C28E7E84E0048F107 /* UIView+Extensions.swift */; };
@@ -33,17 +31,17 @@
 		004D369B28E7F4A80048F107 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D369A28E7F4A80048F107 /* Network.swift */; };
 		004D369D28E7F5920048F107 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D369C28E7F5920048F107 /* NetworkService.swift */; };
 		004D369F28E809CD0048F107 /* UIImageView+Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D369E28E809CD0048F107 /* UIImageView+Download.swift */; };
+		004D36A228EA20610048F107 /* WeatherPresenterSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D36A128EA20610048F107 /* WeatherPresenterSpy.swift */; };
+		004D36A428EA21B10048F107 /* NetworkServiceSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D36A328EA21B10048F107 /* NetworkServiceSpy.swift */; };
+		004D36A828EA23480048F107 /* WeatherResultMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D36A728EA23480048F107 /* WeatherResultMock.swift */; };
+		004D36AA28EA23950048F107 /* WeatherMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D36A928EA23950048F107 /* WeatherMock.swift */; };
+		004D36AC28EA25F60048F107 /* 4418.json in Resources */ = {isa = PBXBuildFile; fileRef = 004D36AB28EA25F60048F107 /* 4418.json */; };
+		004D36AE28EA26620048F107 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 004D36AD28EA26620048F107 /* JSONHelper.swift */; };
+		004D36B228EA27C30048F107 /* empty.json in Resources */ = {isa = PBXBuildFile; fileRef = 004D36B128EA27C30048F107 /* empty.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		004D365A28E7E2110048F107 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 004D363B28E7E20E0048F107 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 004D364228E7E20E0048F107;
-			remoteInfo = FairWeather;
-		};
-		004D366428E7E2110048F107 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 004D363B28E7E20E0048F107 /* Project object */;
 			proxyType = 1;
@@ -61,10 +59,7 @@
 		004D365228E7E2110048F107 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		004D365428E7E2110048F107 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		004D365928E7E2110048F107 /* FairWeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FairWeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		004D365D28E7E2110048F107 /* FairWeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairWeatherTests.swift; sourceTree = "<group>"; };
-		004D366328E7E2110048F107 /* FairWeatherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FairWeatherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		004D366728E7E2110048F107 /* FairWeatherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairWeatherUITests.swift; sourceTree = "<group>"; };
-		004D366928E7E2110048F107 /* FairWeatherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FairWeatherUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		004D365D28E7E2110048F107 /* WeatherInteractorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInteractorTests.swift; sourceTree = "<group>"; };
 		004D367728E7E3680048F107 /* ViewCodeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodeController.swift; sourceTree = "<group>"; };
 		004D367A28E7E6C40048F107 /* UIFont+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extensions.swift"; sourceTree = "<group>"; };
 		004D367C28E7E84E0048F107 /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
@@ -83,6 +78,13 @@
 		004D369A28E7F4A80048F107 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		004D369C28E7F5920048F107 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		004D369E28E809CD0048F107 /* UIImageView+Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Download.swift"; sourceTree = "<group>"; };
+		004D36A128EA20610048F107 /* WeatherPresenterSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherPresenterSpy.swift; sourceTree = "<group>"; };
+		004D36A328EA21B10048F107 /* NetworkServiceSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceSpy.swift; sourceTree = "<group>"; };
+		004D36A728EA23480048F107 /* WeatherResultMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherResultMock.swift; sourceTree = "<group>"; };
+		004D36A928EA23950048F107 /* WeatherMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherMock.swift; sourceTree = "<group>"; };
+		004D36AB28EA25F60048F107 /* 4418.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = 4418.json; sourceTree = "<group>"; };
+		004D36AD28EA26620048F107 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
+		004D36B128EA27C30048F107 /* empty.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = empty.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,13 +102,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		004D366028E7E2110048F107 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -115,7 +110,6 @@
 			children = (
 				004D364528E7E20E0048F107 /* FairWeather */,
 				004D365C28E7E2110048F107 /* FairWeatherTests */,
-				004D366628E7E2110048F107 /* FairWeatherUITests */,
 				004D364428E7E20E0048F107 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -125,7 +119,6 @@
 			children = (
 				004D364328E7E20E0048F107 /* FairWeather.app */,
 				004D365928E7E2110048F107 /* FairWeatherTests.xctest */,
-				004D366328E7E2110048F107 /* FairWeatherUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -150,18 +143,12 @@
 		004D365C28E7E2110048F107 /* FairWeatherTests */ = {
 			isa = PBXGroup;
 			children = (
-				004D365D28E7E2110048F107 /* FairWeatherTests.swift */,
+				004D36A628EA23330048F107 /* JSON */,
+				004D36A528EA23290048F107 /* Mocks */,
+				004D36A028EA20450048F107 /* Spies */,
+				004D365D28E7E2110048F107 /* WeatherInteractorTests.swift */,
 			);
 			path = FairWeatherTests;
-			sourceTree = "<group>";
-		};
-		004D366628E7E2110048F107 /* FairWeatherUITests */ = {
-			isa = PBXGroup;
-			children = (
-				004D366728E7E2110048F107 /* FairWeatherUITests.swift */,
-				004D366928E7E2110048F107 /* FairWeatherUITestsLaunchTests.swift */,
-			);
-			path = FairWeatherUITests;
 			sourceTree = "<group>";
 		};
 		004D367628E7E3480048F107 /* Base */ = {
@@ -226,6 +213,34 @@
 			path = NetworkService;
 			sourceTree = "<group>";
 		};
+		004D36A028EA20450048F107 /* Spies */ = {
+			isa = PBXGroup;
+			children = (
+				004D36A128EA20610048F107 /* WeatherPresenterSpy.swift */,
+				004D36A328EA21B10048F107 /* NetworkServiceSpy.swift */,
+			);
+			path = Spies;
+			sourceTree = "<group>";
+		};
+		004D36A528EA23290048F107 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				004D36A728EA23480048F107 /* WeatherResultMock.swift */,
+				004D36A928EA23950048F107 /* WeatherMock.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		004D36A628EA23330048F107 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				004D36AB28EA25F60048F107 /* 4418.json */,
+				004D36AD28EA26620048F107 /* JSONHelper.swift */,
+				004D36B128EA27C30048F107 /* empty.json */,
+			);
+			path = JSON;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -264,24 +279,6 @@
 			productReference = 004D365928E7E2110048F107 /* FairWeatherTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		004D366228E7E2110048F107 /* FairWeatherUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 004D367328E7E2110048F107 /* Build configuration list for PBXNativeTarget "FairWeatherUITests" */;
-			buildPhases = (
-				004D365F28E7E2110048F107 /* Sources */,
-				004D366028E7E2110048F107 /* Frameworks */,
-				004D366128E7E2110048F107 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				004D366528E7E2110048F107 /* PBXTargetDependency */,
-			);
-			name = FairWeatherUITests;
-			productName = FairWeatherUITests;
-			productReference = 004D366328E7E2110048F107 /* FairWeatherUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -296,10 +293,6 @@
 						CreatedOnToolsVersion = 14.0.1;
 					};
 					004D365828E7E2110048F107 = {
-						CreatedOnToolsVersion = 14.0.1;
-						TestTargetID = 004D364228E7E20E0048F107;
-					};
-					004D366228E7E2110048F107 = {
 						CreatedOnToolsVersion = 14.0.1;
 						TestTargetID = 004D364228E7E20E0048F107;
 					};
@@ -320,7 +313,6 @@
 			targets = (
 				004D364228E7E20E0048F107 /* FairWeather */,
 				004D365828E7E2110048F107 /* FairWeatherTests */,
-				004D366228E7E2110048F107 /* FairWeatherUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -339,13 +331,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		004D366128E7E2110048F107 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				004D36AC28EA25F60048F107 /* 4418.json in Resources */,
+				004D36B228EA27C30048F107 /* empty.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,16 +371,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				004D365E28E7E2110048F107 /* FairWeatherTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		004D365F28E7E2110048F107 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				004D366828E7E2110048F107 /* FairWeatherUITests.swift in Sources */,
-				004D366A28E7E2110048F107 /* FairWeatherUITestsLaunchTests.swift in Sources */,
+				004D36A428EA21B10048F107 /* NetworkServiceSpy.swift in Sources */,
+				004D36AA28EA23950048F107 /* WeatherMock.swift in Sources */,
+				004D36A228EA20610048F107 /* WeatherPresenterSpy.swift in Sources */,
+				004D36AE28EA26620048F107 /* JSONHelper.swift in Sources */,
+				004D365E28E7E2110048F107 /* WeatherInteractorTests.swift in Sources */,
+				004D36A828EA23480048F107 /* WeatherResultMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,11 +387,6 @@
 			isa = PBXTargetDependency;
 			target = 004D364228E7E20E0048F107 /* FairWeather */;
 			targetProxy = 004D365A28E7E2110048F107 /* PBXContainerItemProxy */;
-		};
-		004D366528E7E2110048F107 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 004D364228E7E20E0048F107 /* FairWeather */;
-			targetProxy = 004D366428E7E2110048F107 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -632,42 +610,6 @@
 			};
 			name = Release;
 		};
-		004D367428E7E2110048F107 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 54MQQS737M;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gabecode.FairWeatherUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FairWeather;
-			};
-			name = Debug;
-		};
-		004D367528E7E2110048F107 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 54MQQS737M;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.gabecode.FairWeatherUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = FairWeather;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -694,15 +636,6 @@
 			buildConfigurations = (
 				004D367128E7E2110048F107 /* Debug */,
 				004D367228E7E2110048F107 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		004D367328E7E2110048F107 /* Build configuration list for PBXNativeTarget "FairWeatherUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				004D367428E7E2110048F107 /* Debug */,
-				004D367528E7E2110048F107 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

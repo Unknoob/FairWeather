@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HTTPError: Error {
+enum HTTPError: Error, Equatable {
     case badRequest
     case notFound
     case serverError
