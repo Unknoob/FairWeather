@@ -11,7 +11,7 @@ import UIKit
 extension UIImageView {
     func loadImage(from url: URL) {
         URLSession.shared.dataTask(with: url) { data, response, error in
-            print(response)
+            print(response as Any)
             guard
                 let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
                 let mimeType = response?.mimeType, mimeType.hasPrefix("image"),

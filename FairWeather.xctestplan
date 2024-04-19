@@ -17,7 +17,6 @@
   },
   "testTargets" : [
     {
-      "parallelizable" : true,
       "target" : {
         "containerPath" : "container:FairWeather.xcodeproj",
         "identifier" : "004D365828E7E2110048F107",

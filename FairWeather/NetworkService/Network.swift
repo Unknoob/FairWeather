@@ -16,7 +16,7 @@ class Network: NetworkService {
     ) {
         print(request)
         let task = session.dataTask(with: request, completionHandler: { data, response, error in
-            print(response)
+            print(response as Any)
             
             if error != nil {
                 completion(.failure(error!))
