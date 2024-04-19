@@ -7,29 +7,15 @@
 
 import Foundation
 
-class WeatherPresenter {
-    let interactor: WeatherInteractorInputProtocol
-    let router: WeatherRouterProtocol
-    
+final class WeatherPresenter {
     weak var viewController: WeatherViewControllerProtocol?
-    
-    init(
-        interactor: WeatherInteractorInputProtocol,
-        router: WeatherRouterProtocol
-    ) {
-        self.interactor = interactor
-        self.router = router
-    }
 }
 
-extension WeatherPresenter: WeatherPresenterInputProtocol {
-    func viewDidLoad() {
+extension WeatherPresenter: WeatherPresenterProtocol {
+    func showLoading() {
         viewController?.changeState(.loading)
-        interactor.loadWeather()
     }
-}
-
-extension WeatherPresenter: WeatherInteractorOutputProtocol {
+    
     func didLoadWeather(_ result: Result<Weather, WeatherError>) {
         switch result {
         case let .success(weather):
@@ -63,4 +49,5 @@ extension WeatherPresenter: WeatherInteractorOutputProtocol {
     private func handleFailure(_ error: WeatherError) {
         viewController?.changeState(.error(error: error))
     }
+    
 }

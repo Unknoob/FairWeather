@@ -14,6 +14,7 @@ struct ConsolidatedWeather: Equatable {
     let currentTemperature: Double
     let minimumTemperature: Double
     let maximumTemperature: Double
+    let applicableDate: String
 }
 
 extension ConsolidatedWeather: Codable {
@@ -24,5 +25,6 @@ extension ConsolidatedWeather: Codable {
         case currentTemperature = "the_temp"
         case minimumTemperature = "min_temp"
         case maximumTemperature = "max_temp"
+        case applicableDate = "applicable_date"
     }
 }

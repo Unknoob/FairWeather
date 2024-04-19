@@ -8,10 +8,13 @@
 import Foundation
 import UIKit
 
-class WeatherRouter {
+final class WeatherRouter {
     weak var viewController: UIViewController?
 }
 
 extension WeatherRouter: WeatherRouterProtocol {
-    
+    func showWeatherList(_ weather: Weather) {
+        let weatherListViewController = WeatherListFactory.buildViewController(weather)
+        viewController?.navigationController?.pushViewController(weatherListViewController, animated: true)
+    }
 }

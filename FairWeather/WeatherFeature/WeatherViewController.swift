@@ -61,10 +61,10 @@ class WeatherViewController: ViewCodeController {
         return containerView
     }()
     
-    let presenter: WeatherPresenterInputProtocol
+    private let interactor: WeatherInteractorProtocol
     
-    init(presenter: WeatherPresenterInputProtocol) {
-        self.presenter = presenter
+    init(interactor: WeatherInteractorProtocol) {
+        self.interactor = interactor
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -74,13 +74,27 @@ class WeatherViewController: ViewCodeController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        presenter.viewDidLoad()
+        interactor.loadWeather()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     override func setupView() {
         view.insetsLayoutMarginsFromSafeArea = true
         view.backgroundColor = UIColor.white
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.topItem?.rightBarButtonItem = UIBarButtonItem(
+            title: "Forecast",
+            style: .plain,
+            target: self,
+            action: #selector(showForecastList)
+        )
+    }
+    
+    @objc func showForecastList() {
+        interactor.showForecastList()
     }
 
     override func setupSubviews() {

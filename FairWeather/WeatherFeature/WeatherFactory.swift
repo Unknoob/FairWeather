@@ -7,16 +7,19 @@
 
 import Foundation
 
-class WeatherFactory {
-    
+final class WeatherFactory {
     static func buildViewController() -> WeatherViewController {
-        let interactor = WeatherInteractor(networkService: Network())
         let router = WeatherRouter()
-        let presenter = WeatherPresenter(interactor: interactor, router: router)
-        let viewController = WeatherViewController(presenter: presenter)
+        let presenter = WeatherPresenter()
+        let interactor = WeatherInteractor(
+            presenter: presenter,
+            router: router,
+            networkService: Network()
+        )
+        
+        let viewController = WeatherViewController(interactor: interactor)
         
         presenter.viewController = viewController
-        interactor.presenter = presenter
         router.viewController = viewController
         
         return viewController

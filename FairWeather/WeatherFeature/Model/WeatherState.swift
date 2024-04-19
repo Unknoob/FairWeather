@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum WeatherState {
+enum WeatherState: Equatable {
     case loading
     case error(error: WeatherError)
     case success(viewModel: WeatherViewModel)

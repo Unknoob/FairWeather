@@ -1,0 +1,29 @@
+{
+  "configurations" : [
+    {
+      "id" : "06C17875-730B-4B6C-8E6D-12F5C1E9D3B6",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:FairWeather.xcodeproj",
+      "identifier" : "004D364228E7E20E0048F107",
+      "name" : "FairWeather"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FairWeather.xcodeproj",
+        "identifier" : "004D365828E7E2110048F107",
+        "name" : "FairWeatherTests"
+      }
+    }
+  ],
+  "version" : 1
+}
