@@ -23,6 +23,4 @@ protocol WeatherListInteractorOutputProtocol: AnyObject {
     func didLoadWeather(_ weather: Weather)
 }
 
-protocol WeatherListRouterProtocol: AnyObject {
-    
-}
+protocol WeatherListRouterProtocol: AnyObject { }

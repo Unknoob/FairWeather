@@ -11,9 +11,9 @@ final class WeatherInteractor {
     private let presenter: WeatherPresenterProtocol
     private let router: WeatherRouterProtocol
     private let networkService: NetworkService
-    
+
     private var weather: Weather?
-    
+
     init(
         presenter: WeatherPresenterProtocol,
         router: WeatherRouterProtocol,
@@ -46,7 +46,7 @@ extension WeatherInteractor: WeatherInteractorProtocol {
             }
         }
     }
-    
+
     func showForecastList() {
         guard let weather = weather else {
             return

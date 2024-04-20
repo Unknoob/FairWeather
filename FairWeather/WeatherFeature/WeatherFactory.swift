@@ -16,12 +16,12 @@ final class WeatherFactory {
             router: router,
             networkService: Network()
         )
-        
+
         let viewController = WeatherViewController(interactor: interactor)
-        
+
         presenter.viewController = viewController
         router.viewController = viewController
-        
+
         return viewController
     }
 }

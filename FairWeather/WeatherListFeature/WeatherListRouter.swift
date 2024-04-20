@@ -13,5 +13,5 @@ class WeatherListRouter {
 }
 
 extension WeatherListRouter: WeatherListRouterProtocol {
-    
+
 }

@@ -10,9 +10,9 @@ import Foundation
 class WeatherListPresenter {
     let interactor: WeatherListInteractorInputProtocol
     let router: WeatherListRouterProtocol
-    
+
     weak var viewController: WeatherListViewControllerProtocol?
-    
+
     init(
         interactor: WeatherListInteractorInputProtocol,
         router: WeatherListRouterProtocol
@@ -32,12 +32,16 @@ extension WeatherListPresenter: WeatherListInteractorOutputProtocol {
     func didLoadWeather(_ weather: Weather) {
         let forecasts = weather.consolidatedWeatherList.map { consolidatedWeather in
             return WeatherForecastViewModel(
-                iconURL: URL(string: "https://cdn.faire.com/static/mobile-take-home/icons/\(consolidatedWeather.weatherIconName).png"),
+                iconURL: URL(
+                    string: "https://cdn.faire.com/static/mobile-take-home/icons/\(consolidatedWeather.iconName).png"
+                ),
                 title: "\(consolidatedWeather.applicableDate) - \(consolidatedWeather.currentWeather)",
                 subtitle: "\(consolidatedWeather.minimumTemperature)°C to \(consolidatedWeather.maximumTemperature)°C"
             )
         }
-        
-        viewController?.updateView(WeatherListViewModel(title: "\(forecasts.count) day forecast", forecastList: forecasts))
+
+        viewController?.updateView(
+            WeatherListViewModel(title: "\(forecasts.count) day forecast", forecastList: forecasts)
+        )
     }
 }

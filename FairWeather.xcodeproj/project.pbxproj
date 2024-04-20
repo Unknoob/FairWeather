@@ -333,8 +333,11 @@
 			buildRules = (
 			);
 			dependencies = (
+				00F054362BD389130000155A /* PBXTargetDependency */,
 			);
 			name = FairWeather;
+			packageProductDependencies = (
+			);
 			productName = FairWeather;
 			productReference = 004D364328E7E20E0048F107 /* FairWeather.app */;
 			productType = "com.apple.product-type.application";
@@ -385,6 +388,9 @@
 				Base,
 			);
 			mainGroup = 004D363A28E7E20E0048F107;
+			packageReferences = (
+				00F054342BD389070000155A /* XCRemoteSwiftPackageReference "SwiftLint" */,
+			);
 			productRefGroup = 004D364428E7E20E0048F107 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -477,6 +483,10 @@
 			isa = PBXTargetDependency;
 			target = 004D364228E7E20E0048F107 /* FairWeather */;
 			targetProxy = 004D365A28E7E2110048F107 /* PBXContainerItemProxy */;
+		};
+		00F054362BD389130000155A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 00F054352BD389130000155A /* SwiftLintPlugin */;
 		};
 /* End PBXTargetDependency section */
 
@@ -620,6 +630,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -647,6 +658,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -731,6 +743,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		00F054342BD389070000155A /* XCRemoteSwiftPackageReference "SwiftLint" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/SwiftLint.git";
+			requirement = {
+				kind = exactVersion;
+				version = 0.53.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		00F054352BD389130000155A /* SwiftLintPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00F054342BD389070000155A /* XCRemoteSwiftPackageReference "SwiftLint" */;
+			productName = "plugin:SwiftLintPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 004D363B28E7E20E0048F107 /* Project object */;
 }

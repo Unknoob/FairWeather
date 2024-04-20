@@ -12,7 +12,7 @@ enum HTTPError: Error, Equatable {
     case notFound
     case serverError
     case unknown
-    
+
     init(code: Int) {
         switch code {
         case 400:

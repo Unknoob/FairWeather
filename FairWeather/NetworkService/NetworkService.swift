@@ -10,6 +10,6 @@ import Foundation
 protocol NetworkService {
     func makeRequest(
         _ request: URLRequest,
-        completion: @escaping (_ result: Result<Data, Error>) -> ()
+        completion: @escaping (_ result: Result<Data, Error>) -> Void
     )
 }

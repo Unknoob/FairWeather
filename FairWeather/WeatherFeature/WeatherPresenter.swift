@@ -15,7 +15,7 @@ extension WeatherPresenter: WeatherPresenterProtocol {
     func showLoading() {
         viewController?.changeState(.loading)
     }
-    
+
     func didLoadWeather(_ result: Result<Weather, WeatherError>) {
         switch result {
         case let .success(weather):
@@ -24,16 +24,16 @@ extension WeatherPresenter: WeatherPresenterProtocol {
             handleFailure(weatherError)
         }
     }
-    
+
     private func handleSuccess(_ weather: Weather) {
         guard let latestWeather = weather.consolidatedWeatherList.last else {
             viewController?.changeState(.error(error: .emptyWeather))
             return
         }
         let iconURL = URL(
-            string: "https://cdn.faire.com/static/mobile-take-home/icons/\(latestWeather.weatherIconName).png"
+            string: "https://cdn.faire.com/static/mobile-take-home/icons/\(latestWeather.iconName).png"
         )
-        
+
         let viewModel = WeatherViewModel(
             title: weather.title,
             iconURL: iconURL,
@@ -42,12 +42,11 @@ extension WeatherPresenter: WeatherPresenterProtocol {
             minimumTemperature: "L: \(Int(latestWeather.minimumTemperature))°",
             maximumTemperature: "H: \(Int(latestWeather.maximumTemperature))°"
         )
-        
+
         viewController?.changeState(.success(viewModel: viewModel))
     }
-    
+
     private func handleFailure(_ error: WeatherError) {
         viewController?.changeState(.error(error: error))
     }
-    
 }

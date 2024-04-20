@@ -10,7 +10,7 @@ import Foundation
 struct ConsolidatedWeather: Equatable {
     let id: Int
     let currentWeather: String
-    let weatherIconName: String
+    let iconName: String
     let currentTemperature: Double
     let minimumTemperature: Double
     let maximumTemperature: Double
@@ -21,7 +21,7 @@ extension ConsolidatedWeather: Codable {
     enum CodingKeys: String, CodingKey {
         case id
         case currentWeather = "weather_state_name"
-        case weatherIconName = "weather_state_abbr"
+        case iconName = "weather_state_abbr"
         case currentTemperature = "the_temp"
         case minimumTemperature = "min_temp"
         case maximumTemperature = "max_temp"
