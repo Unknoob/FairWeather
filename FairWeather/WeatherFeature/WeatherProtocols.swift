@@ -13,7 +13,7 @@ protocol WeatherViewControllerProtocol: AnyObject {
 
 protocol WeatherPresenterProtocol: AnyObject {
     func showLoading()
-    func didLoadWeather(_ result: Result<LegacyWeather, WeatherError>)
+    func didLoadWeather(_ result: Result<WeatherForecast, RequestError>, city: City)
 }
 
 protocol WeatherInteractorProtocol: AnyObject {
@@ -23,6 +23,6 @@ protocol WeatherInteractorProtocol: AnyObject {
 }
 
 protocol WeatherRouterProtocol: AnyObject {
-    func showWeatherList(_ weather: LegacyWeather)
+    func showWeatherForecast(for city: City)
     func showCitySearch()
 }

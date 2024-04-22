@@ -11,14 +11,12 @@ import Foundation
 extension WeatherViewModel {
     static var mock: WeatherViewModel {
         return WeatherViewModel(
-            title: "Toronto",
-            iconURL: URL(
-                string: "https://cdn.faire.com/static/mobile-take-home/icons/s.png"
-            ),
-            currentTemperature: "27°",
-            currentWeather: "Showers",
-            minimumTemperature: "L: 19°",
-            maximumTemperature: "H: 26°"
+            title: "São Paulo",
+            iconURL: URL(string: "https://openweathermap.org/img/w/01d.png"),
+            currentTemperature: "25°C",
+            currentWeather: "céu limpo",
+            minimumTemperature: "Min: 25°C",
+            maximumTemperature: "Max: 29°C"
         )
     }
 }

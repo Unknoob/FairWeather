@@ -72,14 +72,15 @@ class WeatherViewController: ViewCodeController {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         interactor.loadWeather()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Loading"
     }
 
     override func setupView() {
@@ -194,6 +195,7 @@ extension WeatherViewController: WeatherViewControllerProtocol {
 
     private func handleLoading() {
         DispatchQueue.main.async { [weak self] in
+            self?.title = "Loading"
             self?.loadingIndicator.startAnimating()
         }
     }
@@ -213,7 +215,7 @@ extension WeatherViewController: WeatherViewControllerProtocol {
         }
     }
 
-    private func handleError(_ weatherError: WeatherError) {
+    private func handleError(_ error: RequestError) {
         DispatchQueue.main.async { [weak self] in
             self?.loadingIndicator.stopAnimating()
         }

@@ -14,17 +14,13 @@ final class WeatherRouter {
 }
 
 extension WeatherRouter: WeatherRouterProtocol {
-    func showWeatherList(_ weather: LegacyWeather) {
-//        let weatherListViewController = WeatherListFactory.buildViewController(weather)
-//        viewController?.navigationController?.pushViewController(weatherListViewController, animated: true)
-
-        let consolidatedWeatherListViewModel = weather.consolidatedWeatherList.map({
-            ConsolidatedWeatherViewModel(consolidatedWeather: $0)
-        })
-
-        let weatherListView = NewWeatherListView(consolidatedWeatherListViewModel: consolidatedWeatherListViewModel)
-        let hostingController = UIHostingController(rootView: weatherListView)
-        hostingController.title = "Forecast"
+    @MainActor func showWeatherForecast(for city: City) {
+        let weatherForecastView = WeatherForecastView(
+            viewModel: WeatherForecastViewModel(city: city, showSetHomeButton: false)
+        )
+        let hostingController = UIHostingController(rootView: weatherForecastView)
+        hostingController.title = city.name
+        viewController?.title = "Home"
         viewController?.navigationController?.pushViewController(hostingController, animated: true)
     }
 
@@ -32,6 +28,7 @@ extension WeatherRouter: WeatherRouterProtocol {
         let citySearchView = CitySearchView()
         let hostingController = UIHostingController(rootView: citySearchView)
         hostingController.title = "Search"
+        viewController?.title = "Home"
         viewController?.navigationController?.pushViewController(hostingController, animated: true)
     }
 }

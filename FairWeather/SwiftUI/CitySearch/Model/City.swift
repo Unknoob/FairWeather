@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct City: Decodable {
+struct City: Codable, Equatable {
     let name: String
     let lat: Double
     let lon: Double
@@ -53,4 +53,18 @@ struct City: Decodable {
         state = try? container.decode(String.self, forKey: .state)
         country = try container.decode(String.self, forKey: .country)
     }
+
+    public func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(name, forKey: .name)
+        try container.encode(lon, forKey: .lon)
+        try container.encode(lat, forKey: .lat)
+        try container.encode(lon, forKey: .lon)
+        try container.encode(state, forKey: .state)
+        try container.encode(country, forKey: .country)
+    }
+}
+
+extension City {
+    static let defaultCity = City(name: "São Paulo", lat: -23.533773, lon: -46.625290, state: "SP", country: "BR")
 }

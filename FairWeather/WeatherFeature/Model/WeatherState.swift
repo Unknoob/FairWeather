@@ -9,6 +9,6 @@ import Foundation
 
 enum WeatherState: Equatable {
     case loading
-    case error(error: WeatherError)
+    case error(error: RequestError)
     case success(viewModel: WeatherViewModel)
 }

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CloudInformation: Decodable {
+struct CloudInformation: Decodable, Equatable {
     let allCloudsPercentage: Int
 
     init(allCloudsPercentage: Int) {

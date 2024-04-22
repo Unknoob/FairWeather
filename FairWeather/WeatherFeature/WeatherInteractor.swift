@@ -11,47 +11,56 @@ final class WeatherInteractor {
     private let presenter: WeatherPresenterProtocol
     private let router: WeatherRouterProtocol
     private let networkService: LegacyNetworkService
+    private let userDefaultsUtil: UserDefaultsUtilProtocol
 
-    private var weather: LegacyWeather?
+    private var weather: WeatherForecast?
 
     init(
         presenter: WeatherPresenterProtocol,
         router: WeatherRouterProtocol,
-        networkService: LegacyNetworkService
+        networkService: LegacyNetworkService,
+        userDefaultsUtil: UserDefaultsUtilProtocol = UserDefaultsUtil()
     ) {
         self.presenter = presenter
         self.router = router
         self.networkService = networkService
+        self.userDefaultsUtil = userDefaultsUtil
     }
 }
 
 extension WeatherInteractor: WeatherInteractorProtocol {
     func loadWeather() {
-        guard let url = URL(string: "https://cdn.faire.com/static/mobile-take-home/4418.json") else {
-            presenter.didLoadWeather(.failure(.urlError))
-            return
-        }
-        let request = URLRequest(url: url)
-        networkService.makeRequest(request) { [weak self] result in
-            switch result {
-            case let .success(data):
-                guard let weather = try? JSONDecoder().decode(LegacyWeather.self, from: data) else {
-                    self?.presenter.didLoadWeather(.failure(.parsingError))
-                    return
+        let city: City = userDefaultsUtil.retrieveObject(forKey: .city) ?? City.defaultCity
+        do {
+            let request = try CurrentWeatherRequest.getWeather(lat: city.lat, lon: city.lon).buildRequest()
+            presenter.showLoading()
+
+            networkService.makeRequest(request) { [weak self] result in
+                switch result {
+                case let .success(data):
+                    do {
+                        let weather = try JSONDecoder().decode(WeatherForecast.self, from: data)
+                        self?.weather = weather
+                        self?.presenter.didLoadWeather(.success(weather), city: city)
+                    } catch {
+                        self?.presenter.didLoadWeather(.failure(.decodingError(error)), city: city)
+                    }
+                case let .failure(error):
+                    self?.presenter.didLoadWeather(.failure(.unknown(error)), city: city)
                 }
-                self?.weather = weather
-                self?.presenter.didLoadWeather(.success(weather))
-            case .failure:
-                self?.presenter.didLoadWeather(.failure(.httpError(error: .unknown)))
             }
+
+        } catch {
+            if let requestError = error as? RequestError {
+                presenter.didLoadWeather(.failure(requestError), city: city)
+            }
+
         }
     }
 
     func showForecastList() {
-        guard let weather = weather else {
-            return
-        }
-        router.showWeatherList(weather)
+        let city: City = userDefaultsUtil.retrieveObject(forKey: .city) ?? City.defaultCity
+        router.showWeatherForecast(for: city)
     }
 
     func showCitySearch() {

@@ -16,37 +16,34 @@ extension WeatherPresenter: WeatherPresenterProtocol {
         viewController?.changeState(.loading)
     }
 
-    func didLoadWeather(_ result: Result<LegacyWeather, WeatherError>) {
+    func didLoadWeather(_ result: Result<WeatherForecast, RequestError>, city: City) {
         switch result {
         case let .success(weather):
-            handleSuccess(weather)
+            handleSuccess(weather, city: city)
         case let .failure(weatherError):
             handleFailure(weatherError)
         }
     }
 
-    private func handleSuccess(_ weather: LegacyWeather) {
-        guard let latestWeather = weather.consolidatedWeatherList.last else {
+    private func handleSuccess(_ weather: WeatherForecast, city: City) {
+        guard let latestWeather = weather.weatherList.first else {
             viewController?.changeState(.error(error: .emptyWeather))
             return
         }
-        let iconURL = URL(
-            string: "https://cdn.faire.com/static/mobile-take-home/icons/\(latestWeather.iconName).png"
-        )
 
         let viewModel = WeatherViewModel(
-            title: weather.title,
-            iconURL: iconURL,
-            currentTemperature: "\(Int(latestWeather.currentTemperature))°",
-            currentWeather: latestWeather.currentWeather,
-            minimumTemperature: "L: \(Int(latestWeather.minimumTemperature))°",
-            maximumTemperature: "H: \(Int(latestWeather.maximumTemperature))°"
+            title: city.name,
+            iconURL: weather.iconURL,
+            currentTemperature: weather.mainInformation.currentTemperature.formattedAsCelsiusTemperature,
+            currentWeather: latestWeather.description,
+            minimumTemperature: "Min: \(weather.mainInformation.minimumTemperature.formattedAsCelsiusTemperature)",
+            maximumTemperature: "Max: \(weather.mainInformation.maximumTemperature.formattedAsCelsiusTemperature)"
         )
 
         viewController?.changeState(.success(viewModel: viewModel))
     }
 
-    private func handleFailure(_ error: WeatherError) {
+    private func handleFailure(_ error: RequestError) {
         viewController?.changeState(.error(error: error))
     }
 }

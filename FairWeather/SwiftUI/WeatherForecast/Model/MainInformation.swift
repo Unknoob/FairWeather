@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MainInformation: Decodable {
+struct MainInformation: Decodable, Equatable {
     let currentTemperature: Double
     let airPressure: Double
     let airHumidity: Int

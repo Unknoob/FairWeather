@@ -11,16 +11,23 @@ import SwiftUI
 @MainActor class WeatherForecastViewModel: ObservableObject {
     @Published var forecast: WeatherList? = nil
     @Published var isLoading: Bool = true
+    @Published var isShowingAlert = false
 
     let networkService: NetworkServiceProtocol
+    let userDefaultsUtil: UserDefaultsUtilProtocol
     let city: City
+    let showSetHomeButton: Bool
 
     init(
         networkService: NetworkServiceProtocol = NetworkService(),
-        city: City
+        userDefaultsUtil: UserDefaultsUtilProtocol = UserDefaultsUtil(),
+        city: City,
+        showSetHomeButton: Bool
     ) {
         self.networkService = networkService
+        self.userDefaultsUtil = userDefaultsUtil
         self.city = city
+        self.showSetHomeButton = showSetHomeButton
         Task {
             await fetchForecast()
         }
@@ -43,6 +50,11 @@ import SwiftUI
             isLoading = false
             print(error)
         }
+    }
+
+    func updateHomeCity() {
+        isShowingAlert = true
+        userDefaultsUtil.saveObject(city, key: .city)
     }
 }
 

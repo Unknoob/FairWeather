@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Wind: Decodable {
+struct Wind: Decodable, Equatable {
     let speed: Double?
     let degrees: Double?
 

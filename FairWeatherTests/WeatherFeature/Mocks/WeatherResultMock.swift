@@ -8,16 +8,16 @@
 import Foundation
 @testable import FairWeather
 
-extension Result<LegacyWeather, WeatherError> {
-    static var successMock: Result<LegacyWeather, WeatherError> {
+extension Result<WeatherForecast, RequestError> {
+    static var successMock: Result<WeatherForecast, RequestError> {
         return .success(.mock)
     }
     
-    static var successEmptyWeatherMock: Result<LegacyWeather, WeatherError> {
+    static var successEmptyWeatherMock: Result<WeatherForecast, RequestError> {
         return .success(.emptyMock)
     }
     
-    static var failureServerErrorMock: Result<LegacyWeather, WeatherError> {
-        return .failure(.httpError(error: .unknown))
+    static var failureServerErrorMock: Result<WeatherForecast, RequestError> {
+        return .failure(.unknown(HTTPError.badRequest))
     }
 }

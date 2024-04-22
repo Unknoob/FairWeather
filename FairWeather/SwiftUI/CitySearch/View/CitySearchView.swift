@@ -16,7 +16,11 @@ struct CitySearchView: View {
             if !viewModel.isLoading {
                 List {
                     ForEach(viewModel.searchResults, id: \.name) { city in
-                        NavigationLink(destination: WeatherForecastView(viewModel: WeatherForecastViewModel(city: city))) {
+                        NavigationLink(
+                            destination: WeatherForecastView(
+                                viewModel: WeatherForecastViewModel(city: city, showSetHomeButton: true)
+                            )
+                        ) {
                             Text([city.name, city.state, city.country].compactMap({$0}).joined(separator: " - "))
                         }
                     }

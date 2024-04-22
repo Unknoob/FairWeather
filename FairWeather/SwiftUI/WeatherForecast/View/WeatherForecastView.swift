@@ -24,9 +24,14 @@ struct WeatherForecastView: View {
         }
         .navigationTitle(viewModel.city.name)
         .toolbar {
-            ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Set Home") {
-                    print("Pressed")
+            if viewModel.showSetHomeButton {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Set Home") {
+                        viewModel.updateHomeCity()
+                    }
+                    .alert("Home set!", isPresented: $viewModel.isShowingAlert) {
+                        Button("OK", role: .cancel) { }
+                    }
                 }
             }
         }
@@ -37,7 +42,14 @@ struct WeatherForecastView_Previews: PreviewProvider {
     static var previews: some View {
         WeatherForecastView(
             viewModel: WeatherForecastViewModel(
-                city: City(name: "São Paulo", lat: 23.5558, lon: 46.6396, state: "SP", country: "BR")
+                city: City(
+                    name: "São Paulo",
+                    lat: 23.5558,
+                    lon: 46.6396,
+                    state: "SP",
+                    country: "BR"
+                ),
+                showSetHomeButton: true
             )
         )
     }

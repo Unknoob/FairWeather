@@ -3,7 +3,14 @@
     "lon": -43.2094,
     "lat": -22.911
   },
-  "weather": [],
+  "weather": [
+    {
+      "id": 800,
+      "main": "Clear",
+      "description": "céu limpo",
+      "icon": "01d"
+    }
+  ],
   "base": "stations",
   "main": {
     "temp": 25.97,

@@ -11,7 +11,7 @@ import Foundation
 class WeatherPresenterSpy {
     enum Method {
         case showLoading
-        case didLoadWeather(result: Result<LegacyWeather, WeatherError>)
+        case didLoadWeather(result: Result<WeatherForecast, RequestError>, city: City)
     }
     
     var calledMethods: [Method] = []
@@ -22,8 +22,8 @@ extension WeatherPresenterSpy: WeatherPresenterProtocol {
         calledMethods.append(.showLoading)
     }
     
-    func didLoadWeather(_ result: Result<LegacyWeather, WeatherError>) {
-        calledMethods.append(.didLoadWeather(result: result))
+    func didLoadWeather(_ result: Result<WeatherForecast, RequestError>, city: City) {
+        calledMethods.append(.didLoadWeather(result: result, city: city))
     }
 }
 
@@ -32,8 +32,8 @@ extension WeatherPresenterSpy.Method: Equatable {
         switch (lhs, rhs) {
         case (.showLoading, .showLoading):
             return true
-        case let (.didLoadWeather(lhsResult), .didLoadWeather(rhsResult)):
-            return lhsResult == rhsResult
+        case let (.didLoadWeather(lhsResult, lhsCity), .didLoadWeather(rhsResult, rhsCity)):
+            return lhsResult == rhsResult && lhsCity == rhsCity
         default:
             return false
         }

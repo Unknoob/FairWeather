@@ -21,7 +21,7 @@ final class WeatherPresenterTests: XCTestCase {
     func testDidLoadWeatherSuccessfully() throws {
         let (sut, spies) = makeSut()
         
-        sut.didLoadWeather(.success(.mock))
+        sut.didLoadWeather(.success(.mock), city: City.defaultCity)
         
         XCTAssertEqual(spies.viewControllerSpy.calledMethods, [.changeState(state: .success(viewModel: .mock))])
     }
@@ -29,9 +29,9 @@ final class WeatherPresenterTests: XCTestCase {
     func testDidLoadWeatherFailure() throws {
         let (sut, spies) = makeSut()
         
-        sut.didLoadWeather(.failure(.parsingError))
+        sut.didLoadWeather(.failure(.badRequest), city: City.defaultCity)
         
-        XCTAssertEqual(spies.viewControllerSpy.calledMethods,[.changeState(state: .error(error: .parsingError))])
+        XCTAssertEqual(spies.viewControllerSpy.calledMethods,[.changeState(state: .error(error: .badRequest))])
     }
 }
 
