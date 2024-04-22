@@ -282,11 +282,11 @@
 		004D36A528EA23290048F107 /* Mocks */ = {
 			isa = PBXGroup;
 			children = (
-				0081F4592BD22A4D00C348D3 /* JSON */,
-				004D36A728EA23480048F107 /* WeatherResultMock.swift */,
-				004D36A928EA23950048F107 /* WeatherForecastMock.swift */,
-				0081F45E2BD22E6800C348D3 /* WeatherViewModelMock.swift */,
 				00E0CED92BD6E27900EC145D /* CityMock.swift */,
+				004D36A928EA23950048F107 /* WeatherForecastMock.swift */,
+				004D36A728EA23480048F107 /* WeatherResultMock.swift */,
+				0081F45E2BD22E6800C348D3 /* WeatherViewModelMock.swift */,
+				0081F4592BD22A4D00C348D3 /* JSON */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -302,11 +302,11 @@
 		0081F4532BD220FC00C348D3 /* WeatherFeature */ = {
 			isa = PBXGroup;
 			children = (
+				0081F4542BD2211000C348D3 /* WeatherFactoryTests.swift */,
+				004D365D28E7E2110048F107 /* WeatherInteractorTests.swift */,
+				0081F45A2BD22C6B00C348D3 /* WeatherPresenterTests.swift */,
 				004D36A528EA23290048F107 /* Mocks */,
 				0081F4582BD22A3700C348D3 /* Spies */,
-				004D365D28E7E2110048F107 /* WeatherInteractorTests.swift */,
-				0081F4542BD2211000C348D3 /* WeatherFactoryTests.swift */,
-				0081F45A2BD22C6B00C348D3 /* WeatherPresenterTests.swift */,
 			);
 			path = WeatherFeature;
 			sourceTree = "<group>";
