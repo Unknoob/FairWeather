@@ -35,6 +35,7 @@ struct NewWeatherListItemView: View {
             }
             Spacer()
             Text(consolidatedWeatherViewModel.currentTemperature)
+                .font(.system(size: 32))
         }
     }
 }
