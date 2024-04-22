@@ -19,8 +19,6 @@ class NetworkService: NetworkServiceProtocol {
         print("<<<<< URL Request >>>>>")
         print(urlRequest)
 
-        
-
         let response = try await URLSession.shared.data(for: urlRequest)
 
         return .success(try mapResponse(response: response))

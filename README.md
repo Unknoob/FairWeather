@@ -1,24 +1,42 @@
-OK, it's been around 3 hours and it's time to wrap this up!
+1, 2, 3, Testando.
 
-### How to run:
- The project does not require any special setup, simply open the project file in XCode(I used version 14.0.1) and run the app in any simulator(Preferably iPhone/iPod because I didn't have time to adapt the views to iPad).
+## Como rodar:
+O projeto foi desenvolvido no XCode 14.3.1, mas não deve ter problemas para rodar no XCode 15.
+A única dependência externa do projeto é o SwiftLint.
 
+## Descrição:
+Esse projeto foi criado uns dois anos atrás por mim como teste para uma outra empresa. Como me disseram que o projeto que eu precisava mandar podia ser um que eu já tinha pronto resolvi partir desse e implementar mais coisas. (Nessa outra empresa o tempo de desenvolvimento foi só de 3 horas)
 
-### Considerations:
+## Features:
 
-I used VIPER as the architecture because it's what I use daily at my current position, it's great for separating business logic from view logic as requested in the test, but it did slow things down a bit because there's a lot of boilerplate to write.
+#### WeatherViewController
+É a ViewController principal do projeto, ela utiliza UIKit e arquitetura VIP. (Foi um legado do teste anterior)
+As classes de Interactor, Presenter e Factory dessa ViewController têm testes unitários.
+Ela usa uma classe de network legada baseada em completion para as chamadas.
+Originalmente ela usava uma API mockada de previsão do tempo com apenas 1 cidade, eu melhorei ela pra usar a API OpenWeather e pegar uma cidade salva pelo usuário como Home.
 
-I didn't want to use SwiftUI because my experience with it is very limited and I never implemented VIPER using SwiftUI. (I'm also not good enough with SwiftUI to make it work)
+#### CitySearchView
+Desenvolvida do zero em SwiftUI, utilizei uma outra classe de Network baseada em async/await.
+Ela serve para realizar a busca de cidades por nome, pra fim de geolocalização(A API do OpenWeather recebe os parâmetros de latitude e longitude nas chamadas de previsão do tempo)
 
-I didn't want to use Storyboards or XIBs because all the companies where I worked at had banned them in favor of writting views programmatically. (Fixing git conflicts on XML files with 20 thousand lines is a nightmare)
+#### WeatherForecastView
+Também desenvolvida em SwiftUI e com async/await. Essa tela mostra a previsão do tempo retornada pelo OpenWeather para as próximas horas. Ela é utilizada tanto após a busca, permitindo setar uma cidade específica para aparecer na `WeatherViewController`, quanto para mostrar a previsão pelo botão `Forecast` da própria `WeatherViewController`
 
-By creating the views programmatically I ended up losing some time, but the result in my opinion is much cleaner and easier to maintain.
+## Problemas
+- Não tive tempo de implementar telas de erro ou tratamentos melhores para os erros.
+- Não tive tempo de criar testes para a parte de SwiftUI. (Precisaria dar uma pesquisada melhor também)
+- Sim, a chave de API do OpenWeather está comitada(um abraço pessoal de segurança), deixei pra facilitar a avaliação, mas assim que avaliarem eu vou revogar ela.
 
-I didn't want to use third party libraries because the project was very simple, and a single dependency would probably have more lines of code than the test itself. I did end up copying a extension from stack overflow to download the weather image because I had never implemented it myself (Had always used either Kingfisher or AlamofireImage)
+## Considerações finais
+- Foi minha primeira vez integrando SwiftUI + UIKit e acabou sendo bem mais fácil do que imaginei.
+- SwiftUI + ViewModel é muito mais rápido do que criar Interactor + Presenter + Router + ViewController, a decisão de fazer as partes novas em SwiftUI me economizou muito tempo.
+- Perdi bastante tempo criando uma tela de previsão do tempo que usava a API mockada do outro teste pois achei que integrar com a OpenWeather ia demorar muito, no final acabei integrando mesmo assim e exclui a tela nova que criei.
+- Das tecnologias usadas, eu sou mais habituado com VIP e Testes Unitários, a parte de AsyncAwait e SwiftUI foi um exercício pra me habituar mais nessas tecnologias novas.
+- As telas são feias, o foco do projeto acabou ficando em mostrar Arquitetura + Testes + SwiftUI + AsyncAwait.
+- A ideia original era mostrar um mapa onde o usuário pudesse tocar em um ponto e carregar a previsão do tempo naquelas coordenadas, mas a implementação de mapas no SwiftUI é horrível no XCode 14. Como precisaria atualizar meu MacOS para o Sonoma e depois o Xcode para o 15 preferi só mudar para a busca por cidade pois achei que seria menos arriscado.
+- A interface do app é em inglês mas eu puxo os resultados da OpenWeather em português pois ninguém merece Brasil com Z e temperatura em Farenheit.
+- O histórico completo do GIT está nesse repositório, se quiserem ver como o projeto era na entrega de dois anos atrás é só voltar pro commit `0bd8fd077c95c143b3d2b9d174b67ad39b276f33`
 
-I wanted to implement better error handling, but I ran out of time for the error view. I did implement a bunch of different error types and even passed the error back to the view, so all I'm missing is proper HTTP status code parsing and an Error View.
-
-Since the test was supposed to be completed fast I  didn't bother with using git correctly, this folder is a repository but there's only a couple commits and they do not represent my progress meaningfully. 
-
-Since I used the VIPER architecture all the classes are testable, unfortunately I did not have time to implement tests in the 3 hours I was given. 
-I did end up making some tests as example in a separate branch, if you want to check it switch to the `unit-tests` branch.
+## O que eu faria diferente
+Quis economizar tempo usando um teste antigo e acabei reescrevendo 90% dele, talvez eu ganhasse mais tempo se tivesse feito tudo em SwiftUI desde o começo.
+Teria atualizado meu MacOS/XCode antes para poder usar a ideia do mapa.
