@@ -7,16 +7,12 @@
 
 import Foundation
 
-struct WeatherList: Codable {
-    let message: String
-    let cod: String
+struct WeatherList: Decodable {
     let count: Int
-    let citiesList: [CityInformation]
+    let weatherForecast: [WeatherForecast]
 
     enum CodingKeys: String, CodingKey {
-        case message
-        case cod
-        case count
-        case citiesList = "list"
+        case count = "cnt"
+        case weatherForecast = "list"
     }
 }

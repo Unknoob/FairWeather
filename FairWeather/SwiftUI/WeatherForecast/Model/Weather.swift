@@ -7,11 +7,23 @@
 
 import Foundation
 
-struct Weather: Codable {
+struct Weather: Decodable {
     let id: Int
     let name: String
     let description: String
     let icon: String
+
+    init(
+        id: Int,
+        name: String,
+        description: String,
+        icon: String
+    ) {
+        self.id = id
+        self.name = name
+        self.description = description
+        self.icon = icon
+    }
 
     enum CodingKeys: String, CodingKey {
         case id

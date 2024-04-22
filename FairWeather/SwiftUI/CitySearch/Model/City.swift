@@ -15,6 +15,7 @@ struct City: Decodable {
     let country: String
 
     enum CodingKeys: String, CodingKey {
+        case name
         case localNames = "local_names"
         case lat
         case lon
@@ -42,12 +43,14 @@ struct City: Decodable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        let namesContainer = try container.nestedContainer(keyedBy: LocalNamesCodingKeys.self, forKey: .localNames)
-
-        name = try namesContainer.decode(String.self, forKey: .portuguese)
+        if let namesContainer = try? container.nestedContainer(keyedBy: LocalNamesCodingKeys.self, forKey: .localNames) {
+            name = try namesContainer.decode(String.self, forKey: .portuguese)
+        } else {
+            name = try container.decode(String.self, forKey: .name)
+        }
         lat = try container.decode(Double.self, forKey: .lat)
         lon = try container.decode(Double.self, forKey: .lon)
-        state = try container.decode(String.self, forKey: .state)
+        state = try? container.decode(String.self, forKey: .state)
         country = try container.decode(String.self, forKey: .country)
     }
 }

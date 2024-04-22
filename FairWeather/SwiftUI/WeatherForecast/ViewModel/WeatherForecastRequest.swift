@@ -12,13 +12,13 @@ enum WeatherForecastRequest: RequestProtocol {
     case getForecast(lat: Double, lon: Double)
 
     var baseURL: String {
-        return "https://api.openweathermap.org/data/2.5/"
+        return "https://api.openweathermap.org/data/2.5"
     }
 
     var endpoint: String {
         switch self {
         case .getForecast:
-            return "/find"
+            return "/forecast"
         }
     }
 
@@ -35,6 +35,8 @@ enum WeatherForecastRequest: RequestProtocol {
             var parameters = defaultParameters ?? [:]
             parameters["lat"] = lat
             parameters["lon"] = lon
+            parameters["units"] = "metric"
+            parameters["lang"] = "pt_br"
 
             return parameters
         }

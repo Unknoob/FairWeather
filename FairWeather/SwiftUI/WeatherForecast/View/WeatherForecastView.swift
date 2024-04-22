@@ -9,9 +9,27 @@ import SwiftUI
 
 struct WeatherForecastView: View {
     @StateObject var viewModel: WeatherForecastViewModel
-
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .center) {
+            if !viewModel.isLoading {
+                List {
+                    ForEach(viewModel.forecast?.weatherForecast ?? [], id: \.date) { weatherForecast in
+                        WeatherForecastItemView(weatherForecast: weatherForecast)
+                    }
+                }
+            } else {
+                ProgressView()
+            }
+        }
+        .navigationTitle(viewModel.city.name)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button("Set Home") {
+                    print("Pressed")
+                }
+            }
+        }
     }
 }
 

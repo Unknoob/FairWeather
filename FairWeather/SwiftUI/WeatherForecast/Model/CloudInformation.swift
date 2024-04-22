@@ -7,8 +7,12 @@
 
 import Foundation
 
-struct CloudInformation: Codable {
+struct CloudInformation: Decodable {
     let allCloudsPercentage: Int
+
+    init(allCloudsPercentage: Int) {
+        self.allCloudsPercentage = allCloudsPercentage
+    }
 
     enum CodingKeys: String, CodingKey {
         case allCloudsPercentage = "all"

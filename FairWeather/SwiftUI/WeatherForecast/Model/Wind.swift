@@ -7,9 +7,17 @@
 
 import Foundation
 
-struct Wind: Codable {
+struct Wind: Decodable {
     let speed: Double?
     let degrees: Double?
+
+    init(
+        speed: Double?,
+        degrees: Double?
+    ) {
+        self.speed = speed
+        self.degrees = degrees
+    }
 
     enum CodingKeys: String, CodingKey {
         case speed

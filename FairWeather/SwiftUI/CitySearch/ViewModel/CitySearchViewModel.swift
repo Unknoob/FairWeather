@@ -13,12 +13,12 @@ import SwiftUI
 
     @Published var searchText: String = ""
     @Published var debouncedSearchText: String = ""
+    @Published var isLoading: Bool = false
 
     let networkService: NetworkServiceProtocol
 
     init(networkService: NetworkServiceProtocol = NetworkService() ) {
         self.networkService = networkService
-
         $searchText
             .debounce(for: .seconds(0.75), scheduler: RunLoop.main)
             .assign(to: &$debouncedSearchText)
@@ -30,9 +30,11 @@ import SwiftUI
             searchResults = []
             return
         }
+        isLoading = true
         let request = CitySearchRequest.searchByName(name: searchTerm)
         do {
             let result: Result<[City], RequestError> = try await networkService.executeRequest(request: request)
+            isLoading = false
             switch result {
             case let .success(cityList):
                 searchResults = cityList
@@ -40,6 +42,7 @@ import SwiftUI
                 print(error)
             }
         } catch {
+            isLoading = false
             print(error)
         }
     }
