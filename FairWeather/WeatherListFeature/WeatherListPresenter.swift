@@ -29,9 +29,9 @@ extension WeatherListPresenter: WeatherListPresenterInputProtocol {
 }
 
 extension WeatherListPresenter: WeatherListInteractorOutputProtocol {
-    func didLoadWeather(_ weather: Weather) {
+    func didLoadWeather(_ weather: LegacyWeather) {
         let forecasts = weather.consolidatedWeatherList.map { consolidatedWeather in
-            return WeatherForecastViewModel(
+            return LegacyWeatherForecastViewModel(
                 iconURL: URL(
                     string: "https://cdn.faire.com/static/mobile-take-home/icons/\(consolidatedWeather.iconName).png"
                 ),

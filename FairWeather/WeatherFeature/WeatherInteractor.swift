@@ -10,14 +10,14 @@ import Foundation
 final class WeatherInteractor {
     private let presenter: WeatherPresenterProtocol
     private let router: WeatherRouterProtocol
-    private let networkService: NetworkService
+    private let networkService: LegacyNetworkService
 
-    private var weather: Weather?
+    private var weather: LegacyWeather?
 
     init(
         presenter: WeatherPresenterProtocol,
         router: WeatherRouterProtocol,
-        networkService: NetworkService
+        networkService: LegacyNetworkService
     ) {
         self.presenter = presenter
         self.router = router
@@ -35,7 +35,7 @@ extension WeatherInteractor: WeatherInteractorProtocol {
         networkService.makeRequest(request) { [weak self] result in
             switch result {
             case let .success(data):
-                guard let weather = try? JSONDecoder().decode(Weather.self, from: data) else {
+                guard let weather = try? JSONDecoder().decode(LegacyWeather.self, from: data) else {
                     self?.presenter.didLoadWeather(.failure(.parsingError))
                     return
                 }
@@ -52,5 +52,9 @@ extension WeatherInteractor: WeatherInteractorProtocol {
             return
         }
         router.showWeatherList(weather)
+    }
+
+    func showCitySearch() {
+        router.showCitySearch()
     }
 }

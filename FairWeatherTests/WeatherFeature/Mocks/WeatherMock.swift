@@ -8,9 +8,9 @@
 import Foundation
 @testable import FairWeather
 
-extension Weather {
-    static var mock: Weather {
-        return Weather(
+extension LegacyWeather {
+    static var mock: LegacyWeather {
+        return LegacyWeather(
             title: "Toronto",
             consolidatedWeatherList: [
                 ConsolidatedWeather(
@@ -71,8 +71,8 @@ extension Weather {
         )
     }
     
-    static var emptyMock: Weather {
-        return Weather(
+    static var emptyMock: LegacyWeather {
+        return LegacyWeather(
             title: "Toronto",
             consolidatedWeatherList: []
         )

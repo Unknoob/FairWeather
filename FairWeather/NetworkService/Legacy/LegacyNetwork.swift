@@ -1,5 +1,5 @@
 //
-//  NetworkService.swift
+//  LegacyNetwork.swift
 //  FairWeather
 //
 //  Created by Gabriel Beltrame Silva on 01/10/22.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Network: NetworkService {
+class LegacyNetwork: LegacyNetworkService {
     let session = URLSession.shared
 
     func makeRequest(

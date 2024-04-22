@@ -9,10 +9,10 @@ import Foundation
 
 struct WeatherListViewModel {
     let title: String
-    let forecastList: [WeatherForecastViewModel]
+    let forecastList: [LegacyWeatherForecastViewModel]
 }
 
-struct WeatherForecastViewModel {
+struct LegacyWeatherForecastViewModel {
     let iconURL: URL?
     let title: String
     let subtitle: String

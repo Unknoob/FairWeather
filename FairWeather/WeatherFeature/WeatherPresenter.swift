@@ -16,7 +16,7 @@ extension WeatherPresenter: WeatherPresenterProtocol {
         viewController?.changeState(.loading)
     }
 
-    func didLoadWeather(_ result: Result<Weather, WeatherError>) {
+    func didLoadWeather(_ result: Result<LegacyWeather, WeatherError>) {
         switch result {
         case let .success(weather):
             handleSuccess(weather)
@@ -25,7 +25,7 @@ extension WeatherPresenter: WeatherPresenterProtocol {
         }
     }
 
-    private func handleSuccess(_ weather: Weather) {
+    private func handleSuccess(_ weather: LegacyWeather) {
         guard let latestWeather = weather.consolidatedWeatherList.last else {
             viewController?.changeState(.error(error: .emptyWeather))
             return

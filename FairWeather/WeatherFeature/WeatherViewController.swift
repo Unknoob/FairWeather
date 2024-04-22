@@ -91,10 +91,21 @@ class WeatherViewController: ViewCodeController {
             target: self,
             action: #selector(showForecastList)
         )
+
+        navigationController?.navigationBar.topItem?.leftBarButtonItem = UIBarButtonItem(
+            title: "Search",
+            style: .plain,
+            target: self,
+            action: #selector(showCitySearch)
+        )
     }
 
     @objc func showForecastList() {
         interactor.showForecastList()
+    }
+
+    @objc func showCitySearch() {
+        interactor.showCitySearch()
     }
 
     override func setupSubviews() {

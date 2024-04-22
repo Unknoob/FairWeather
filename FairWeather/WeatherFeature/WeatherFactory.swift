@@ -14,7 +14,7 @@ final class WeatherFactory {
         let interactor = WeatherInteractor(
             presenter: presenter,
             router: router,
-            networkService: Network()
+            networkService: LegacyNetwork()
         )
 
         let viewController = WeatherViewController(interactor: interactor)

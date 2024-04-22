@@ -17,7 +17,7 @@ class NetworkServiceSpy {
     var mockResult: Result<Data, Error>?
 }
 
-extension NetworkServiceSpy: NetworkService {
+extension NetworkServiceSpy: LegacyNetworkService {
     func makeRequest(_ request: URLRequest, completion: @escaping (Result<Data, Error>) -> ()) {
         calledMethods.append(.makeRequest(request: request))
         if let mockResult  = mockResult {

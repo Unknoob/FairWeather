@@ -10,14 +10,14 @@ import Foundation
 
 class WeatherRouterSpy {
     enum Method {
-        case showWeatherList(weather: Weather)
+        case showWeatherList(weather: LegacyWeather)
     }
     
     var calledMethods: [Method] = []
 }
 
 extension WeatherRouterSpy: WeatherRouterProtocol {
-    func showWeatherList(_ weather: Weather) {
+    func showWeatherList(_ weather: LegacyWeather) {
         calledMethods.append(.showWeatherList(weather: weather))
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 
 class WeatherListFactory {
 
-    static func buildViewController(_ weather: Weather) -> WeatherListViewController {
+    static func buildViewController(_ weather: LegacyWeather) -> WeatherListViewController {
         let interactor = WeatherListInteractor(weather)
         let router = WeatherListRouter()
         let presenter = WeatherListPresenter(interactor: interactor, router: router)

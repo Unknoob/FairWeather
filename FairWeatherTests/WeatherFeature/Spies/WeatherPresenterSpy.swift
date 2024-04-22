@@ -11,7 +11,7 @@ import Foundation
 class WeatherPresenterSpy {
     enum Method {
         case showLoading
-        case didLoadWeather(result: Result<Weather, WeatherError>)
+        case didLoadWeather(result: Result<LegacyWeather, WeatherError>)
     }
     
     var calledMethods: [Method] = []
@@ -22,7 +22,7 @@ extension WeatherPresenterSpy: WeatherPresenterProtocol {
         calledMethods.append(.showLoading)
     }
     
-    func didLoadWeather(_ result: Result<Weather, WeatherError>) {
+    func didLoadWeather(_ result: Result<LegacyWeather, WeatherError>) {
         calledMethods.append(.didLoadWeather(result: result))
     }
 }

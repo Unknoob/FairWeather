@@ -10,9 +10,9 @@ import Foundation
 class WeatherListInteractor {
     weak var presenter: WeatherListInteractorOutputProtocol?
 
-    private let weather: Weather
+    private let weather: LegacyWeather
 
-    init(_ weather: Weather) {
+    init(_ weather: LegacyWeather) {
         self.weather = weather
     }
 }

@@ -20,7 +20,7 @@ protocol WeatherListInteractorInputProtocol: AnyObject {
 }
 
 protocol WeatherListInteractorOutputProtocol: AnyObject {
-    func didLoadWeather(_ weather: Weather)
+    func didLoadWeather(_ weather: LegacyWeather)
 }
 
 protocol WeatherListRouterProtocol: AnyObject { }
