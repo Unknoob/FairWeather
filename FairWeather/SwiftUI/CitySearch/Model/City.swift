@@ -43,15 +43,16 @@ struct City: Codable, Equatable {
 
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        if let namesContainer = try? container.nestedContainer(keyedBy: LocalNamesCodingKeys.self, forKey: .localNames) {
-            name = try namesContainer.decode(String.self, forKey: .portuguese)
+        if let namesContainer = try? container.nestedContainer(keyedBy: LocalNamesCodingKeys.self, forKey: .localNames),
+           let name = try? namesContainer.decode(String.self, forKey: .portuguese) {
+            self.name = name
         } else {
-            name = try container.decode(String.self, forKey: .name)
+            self.name = try container.decode(String.self, forKey: .name)
         }
-        lat = try container.decode(Double.self, forKey: .lat)
-        lon = try container.decode(Double.self, forKey: .lon)
-        state = try? container.decode(String.self, forKey: .state)
-        country = try container.decode(String.self, forKey: .country)
+        self.lat = try container.decode(Double.self, forKey: .lat)
+        self.lon = try container.decode(Double.self, forKey: .lon)
+        self.state = try? container.decode(String.self, forKey: .state)
+        self.country = try container.decode(String.self, forKey: .country)
     }
 
     public func encode(to encoder: Encoder) throws {
